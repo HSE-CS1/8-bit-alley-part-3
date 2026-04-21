@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Hello, {{ player.username }}. Make any necessary changes.</h2>
+    <form action="/update/{{player.player_id}}" method="post">
+        <div>
+            <label for="username">* Username: </label>
+            <input type="text" name="username" id="username"
+                   placeholder="Enter your username" aria-label="Text"
+                   autocomplete="off" autofocus required
+                   value="{{ player.username }}">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="user@domain.com" aria-label="Email" autocomplete="off"
+            {% if player.email %}
+            value="{{ player.email }}"
+            {% endif %}>
+        </div>
+        <div>
+            <label for="join-date">Member Since: </label>
+            <input type="date" name="join-date" id="join-date"
+                   aria-label="Date" value="{{ player.join_date }}">
+        </div>
+        <button type="submit"><i class="fas fa-save"></i> Save Changes </button>
+    </form>
+    <small>Fields with * are required.</small>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display:flex;flex-direction:column;justify-content: center; align-items:center;">
+
+    <h1>Page Not Found</h1>
+    <p>What you are looking for is just not there.</p>
+    <div style="display:flex; justify-content:center;"><img src="{{url_for('static', filename='8bafavicon.png')}}" style="max-width:600px;width:50%;margin-inline:auto;"></div>
+    <p><a href="/">go somewhere nice</a></p>
+</div>
+{% endblock %}

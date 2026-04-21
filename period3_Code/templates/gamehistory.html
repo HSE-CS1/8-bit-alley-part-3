@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ session.username }}, Add a Game to Your History.</h2>
+    <form action="/record_game" method="post">
+        <div>
+            <label for="game">What game did you play? </label>
+            <select name="game" id="game">
+                <option value="" selected disabled>Game Title</option>
+                {% for game in games %}
+                <option value="{{ game.game_id }}">{{ game.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="score">What was your score? </label>
+            <input type="number" id="score" name="score"
+                   min="0" required>
+        </div>
+        <div>
+            <label for="date">When did you play it? </label>
+            <input type="date" id="date" name="date">
+        </div>
+        <div>
+            <button type="submit">Record Game</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

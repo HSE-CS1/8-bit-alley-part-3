@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Are you sure you want to delete this player?</h3>
+    <p>This action cannot be undone!</p>
+    <form action="/delete/{{id}}" method="post">
+        <p>To confirm, type in the player's username:</p>
+        <div>
+            <label for="username">* Player's Username</label>
+            <input type="text" id="username" name="username" autocomplete="off"
+                    autofocus required>
+        </div>
+        <div class="grid">
+            <div><a style="width:100%;" href="/players" role="button" class="outline secondary">Cancel</a></div>
+
+            <button type="submit" class="primary">DELETE PLAYER</button>
+        </div>
+
+    </form>
+{% endblock %}

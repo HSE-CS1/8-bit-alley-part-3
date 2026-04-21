@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Fishel's 8-Bit Alley Club</h1>
+    {% if not session.get('username') %}
+    <h2>Not a Memeber Yet? <a role="button" href="/join">Join Now!</a></h2>
+    {% endif %}
+    <div>
+        <form action="/login" method="post">
+            <fieldset role="group">
+                <select name="player" id="player">
+                    <option value="" selected disabled>Choose a Player</option>
+                    {% for player in players %}
+                    <option value="{{ player.player_id }}">{{ player.username }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Go">
+            </fieldset>
+        </form>
+    </div>
+
+
+{% endblock %}

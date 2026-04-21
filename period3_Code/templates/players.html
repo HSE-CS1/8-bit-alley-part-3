@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if session.get('username') %}
+        <h2>Welcome Back {{ session.get('username') }}</h2>
+    {% endif %}
+
+    <h3>8-Bit Alley Members</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Member Since</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in all_players %}
+            <tr>
+                <td>{{ player.username }}</td>
+                <td>{{ player.email }}</td>
+                <td>{{ player.join_date }}</td>
+                <td><a href="/edit/{{player.player_id}}">
+                    <i class="fas fa-edit"></i></a>
+                    <a href="/delete/{{player.player_id}}">
+                        <i class="fas fa-trash-alt"></i></a>
+                    <a href="/game_history/{{player.player_id}}">
+                        <i class="fas fa-history"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

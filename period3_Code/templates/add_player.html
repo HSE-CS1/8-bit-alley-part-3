@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Welcome, please fill out the membership form.</h2>
+    <form action="/join" method="post">
+        <div>
+            <label for="username">* Username: </label>
+            <input type="text" name="username" id="username"
+                   placeholder="Enter your username" aria-label="Text"
+                   autocomplete="off" autofocus required>
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="user@domain.com" aria-label="Email" autocomplete="off">
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    <small>Fields with * are required.</small>
+{% endblock %}
