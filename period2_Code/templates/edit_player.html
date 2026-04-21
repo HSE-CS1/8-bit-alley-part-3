@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Hello, {{player.username}}. Make any necessary changes.</h2>
+    <form action="/edit/{{player.player_id}}" method="post">
+        <div>
+            <label for="username">* Username: </label>
+            <input type="text" name="username" id="username"
+                   placeholder="Enter your Username" autocomplete="off"
+                   autofocus aria-label="Text" required
+                   value="{{player.username}}">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email"
+                   placeholder="username@domain.com" autocomplete="off"
+                   aria-label="Email" value="{{player.email}}">
+        </div>
+        <div>
+            <label for="join-date">Member Since: </label>
+            <input type="date" name="join-date" id="join-date"
+                   value="{{player.join_date}}">
+        </div>
+        <button type="submit">Save Changes</button>
+    </form>
+    <small>Note: Fields with * are required!</small>
+{% endblock %}
